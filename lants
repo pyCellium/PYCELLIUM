@@ -1,0 +1,17 @@
+map=[[0,0,0,0,0], #map synatx is first sub-list levcel is a row
+     [0,0,0,0,0], #each item in a sub-list level is a cell's state
+     [0,0,0,0,0], #0 means a cell is white, 1 means black
+     [0,0,0,0,0],
+     [0,0,0,0,0]]
+ants=[[3,3,"Up"]]
+switchwhite={"up":"right", "right":"down", "down":"left", "left":"up"}
+switchblack={"up":"left", "left":"down", "down":"right", "right":"up"}
+for l in range(0, int(times)):
+    newmap=[] #The next steps map
+    for i in range (0,len(ants)):
+        if [map[(ants[i])[0]],map[(ants[i])[1]]]==0:
+            (ants[i])[3]=switchwhite(ants[i])[3]
+        else:
+            (ants[i])[3]=switchblack(ants[i])[3]
+        map[(ants[i])[0]],map[(ants[i])[1]]
+    map=newmap #Update map
